@@ -1,0 +1,40 @@
+CREATE TABLE ClothingItems (
+  ItemID INTEGER PRIMARY KEY,
+  ItemName TEXT,
+  Category TEXT,
+  Price REAL,
+  Quantity INTEGER
+);
+
+INSERT INTO ClothingItems (ItemID, ItemName, Category, Price, Quantity)
+VALUES
+  (1, 'Blue T-Shirt', 'Shirts', 19.99, 10),
+  (2, 'Black Jeans', 'Pants', 39.99, 5),
+  (3, 'Red Dress', 'Dresses', 49.99, 7),
+  (4, 'White Blouse', 'Shirts', 24.99, 12),
+  (5, 'Khaki Shorts', 'Pants', 29.99, 8),
+  (6, 'Striped Sweater', 'Sweaters', 34.99, 6),
+  (7, 'Denim Jacket', 'Jackets', 59.99, 3),
+  (8, 'Black Skirt', 'Skirts', 27.99, 9),
+  (9, 'Green Polo Shirt', 'Shirts', 22.99, 11),
+  (10, 'Gray Hoodie', 'Sweaters', 39.99, 4),
+  (11, 'Printed Maxi Dress', 'Dresses', 54.99, 6),
+  (12, 'Navy Blue Chinos', 'Pants', 34.99, 7),
+  (13, 'Yellow Blazer', 'Jackets', 49.99, 4),
+  (14, 'Floral Top', 'Shirts', 19.99, 15),
+  (15, 'Brown Leather Belt', 'Accessories', 14.99, 10);
+  
+  
+  
+ 
+-- Retrieve all items from the ClothingItems table ordered by price
+SELECT * FROM ClothingItems ORDER BY Price;
+
+-- Calculate the average price of items in the ClothingItems table
+SELECT AVG(Price) AS "Average Price" FROM ClothingItems;
+
+-- Retrieve the top 5 popular items from the ClothingItems table
+SELECT ItemName, Price, Quantity
+FROM ClothingItems
+ORDER BY Quantity DESC
+LIMIT 5;
