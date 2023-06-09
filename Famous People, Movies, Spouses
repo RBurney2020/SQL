@@ -1,0 +1,74 @@
+CREATE TABLE famous_people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    spouse_id INTEGER,
+    FOREIGN KEY (spouse_id) REFERENCES famous_people (id)
+);
+
+INSERT INTO famous_people (name) VALUES ('Tom Hanks');
+INSERT INTO famous_people (name) VALUES ('Julia Roberts');
+INSERT INTO famous_people (name) VALUES ('Brad Pitt');
+INSERT INTO famous_people (name) VALUES ('Leonardo DiCaprio');
+INSERT INTO famous_people (name) VALUES ('Angelina Jolie');
+INSERT INTO famous_people (name) VALUES ('Meryl Streep');
+INSERT INTO famous_people (name) VALUES ('Johnny Depp');
+INSERT INTO famous_people (name) VALUES ('Jennifer Aniston');
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year INTEGER
+);
+
+INSERT INTO movies (title, year) VALUES ('Forrest Gump', 1994);
+INSERT INTO movies (title, year) VALUES ('Pretty Woman', 1990);
+INSERT INTO movies (title, year) VALUES ('Fight Club', 1999);
+INSERT INTO movies (title, year) VALUES ('Titanic', 1997);
+INSERT INTO movies (title, year) VALUES ('Mr. & Mrs. Smith', 2005);
+INSERT INTO movies (title, year) VALUES ('The Devil Wears Prada', 2006);
+INSERT INTO movies (title, year) VALUES ('Pirates of the Caribbean: The Curse of the Black Pearl', 2003);
+INSERT INTO movies (title, year) VALUES ('Friends with Benefits', 2011);
+
+SELECT fp1.name AS FamousPerson, fp2.name AS Spouse
+FROM famous_people fp1
+LEFT JOIN famous_people fp2 ON fp1.spouse_id = fp2.id;
+
+-- Create the famous_people table to store information about famous people
+CREATE TABLE famous_people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, -- Primary key column for unique identification
+    name TEXT, -- Column to store the name of the famous person
+    spouse_id INTEGER, -- Column to store the ID of the spouse
+    FOREIGN KEY (spouse_id) REFERENCES famous_people (id) -- Foreign key constraint to enforce referential integrity
+);
+
+-- Insert famous people into the famous_people table
+INSERT INTO famous_people (name) VALUES ('Tom Hanks');
+INSERT INTO famous_people (name) VALUES ('Julia Roberts');
+INSERT INTO famous_people (name) VALUES ('Brad Pitt');
+INSERT INTO famous_people (name) VALUES ('Leonardo DiCaprio');
+INSERT INTO famous_people (name) VALUES ('Angelina Jolie');
+INSERT INTO famous_people (name) VALUES ('Meryl Streep');
+INSERT INTO famous_people (name) VALUES ('Johnny Depp');
+INSERT INTO famous_people (name) VALUES ('Jennifer Aniston');
+
+-- Create the movies table to store information about movies
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, -- Primary key column for unique identification
+    title TEXT, -- Column to store the title of the movie
+    year INTEGER -- Column to store the release year of the movie
+);
+
+-- Insert movies into the movies table
+INSERT INTO movies (title, year) VALUES ('Forrest Gump', 1994);
+INSERT INTO movies (title, year) VALUES ('Pretty Woman', 1990);
+INSERT INTO movies (title, year) VALUES ('Fight Club', 1999);
+INSERT INTO movies (title, year) VALUES ('Titanic', 1997);
+INSERT INTO movies (title, year) VALUES ('Mr. & Mrs. Smith', 2005);
+INSERT INTO movies (title, year) VALUES ('The Devil Wears Prada', 2006);
+INSERT INTO movies (title, year) VALUES ('Pirates of the Caribbean: The Curse of the Black Pearl', 2003);
+INSERT INTO movies (title, year) VALUES ('Friends with Benefits', 2011);
+
+-- Retrieve the names of famous people and their spouses
+SELECT fp1.name AS FamousPerson, fp2.name AS Spouse
+FROM famous_people fp1
+LEFT JOIN famous_people fp2 ON fp1.spouse_id = fp2.id;
