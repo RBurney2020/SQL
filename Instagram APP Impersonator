@@ -1,0 +1,43 @@
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT,
+    caption TEXT,
+    likes INTEGER
+);
+
+INSERT INTO posts (username, caption, likes)
+    VALUES ('user1', 'Beautiful sunset!', 100);
+INSERT INTO posts (username, caption, likes)
+    VALUES ('user2', 'Having a great time!', 75);
+INSERT INTO posts (username, caption, likes)
+    VALUES ('user3', 'Delicious food!', 120);
+
+UPDATE posts
+SET caption = 'Exploring new places!'
+WHERE id = 2;
+
+DELETE FROM posts
+WHERE id = 3;
+
+-- Create a table named 'posts' to store user posts
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT,
+    caption TEXT,
+    likes INTEGER
+);
+
+-- Insert example rows into the 'posts' table
+INSERT INTO posts (username, caption, likes) VALUES ('user1', 'Great day at the beach!', 20);
+INSERT INTO posts (username, caption, likes) VALUES ('user2', 'Having a great time!', 15);
+INSERT INTO posts (username, caption, likes) VALUES ('user3', 'Amazing sunset view!', 10);
+
+-- Update the caption of a specific post with ID 2
+UPDATE posts SET caption = 'Exploring new places!' WHERE id = 2;
+
+-- Delete a specific post with ID 3
+DELETE FROM posts WHERE id = 3;
+
+-- Retrieve all rows from the 'posts' table
+SELECT * FROM posts;
